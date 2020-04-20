@@ -1,0 +1,29 @@
+
+.infinite-container{
+  position: relative;
+  overflow: auto;
+  height: 100%;
+}
+.infinite-container .index{
+  color: blue;
+}
+
+.infinite-top{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.infinite-list{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.infinite-list-item{
+  padding: 10px;
+  border-bottom: 1px solid #aaa;
+}
