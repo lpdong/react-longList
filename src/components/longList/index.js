@@ -39,7 +39,7 @@ function LongList(props) {
   }, [allList, estimatedItemSize])
 
   useEffect(() => {
-    const endIndex = startIndex + visibleCountRef.current
+    const endIndex = Math.min(startIndex + visibleCountRef.current + visibleCountRef.current, listDataRef.current.length)
     setVisibleList(listData.slice(startIndex, endIndex))
   }, [startIndex])
 
@@ -115,8 +115,9 @@ function LongList(props) {
     const scrollTop = containerRef.current.scrollTop;
     const positions = positionRef.current;
     const index = binarySearch(positions, scrollTop);
+    const startIndex = index - visibleCountRef.current <= 0 ? 0 : index - visibleCountRef.current
     // console.log('index', index)
-    setStartIndex(index)
+    setStartIndex(startIndex)
     setStartOffset('scroll')
     // ulRef.current.style.transform = `translate3d(0,${offset}px,0)`
   }
